@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+>
+    <engine:TextField name="planetName" label="Planet Name"></engine:TextField>
+    <engine:VisualElement class="spriteContainer">
+        <engine:VisualElement class="sprite spriteBackground"/>  
+        <engine:VisualElement name="planetSpriteDisplay" class="sprite spriteImage"/> 
+    </engine:VisualElement>  
+    <editor:ObjectField name="planetSprite" label="Sprite" allow-scene-objects="false"/>  
+    <editor:FloatField name="planetScale" label="Planet Scale"/>
+    <editor:FloatField name="planetDistance" label="Distance From Star (Light Seconds)"/>
+    <editor:FloatField name="planetSpeed" label="Planet Speed"/>
+    <engine:Button text="Remove planet" name="btnRemove"/>
+
+</engine:UXML>

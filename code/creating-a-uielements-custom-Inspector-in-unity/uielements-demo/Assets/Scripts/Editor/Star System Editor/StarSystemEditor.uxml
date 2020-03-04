@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+>
+    <!-- Star System -->
+    <engine:VisualElement class="container">   
+        <engine:Label text="Star System" class="heading"/>
+        <engine:VisualElement class="spriteContainer">
+            <engine:VisualElement class="sprite spriteBackground"/>
+            <engine:VisualElement name="systemSprite" class="sprite spriteImage"/> 
+        </engine:VisualElement>      
+        <editor:ObjectField name="systemSpriteField" label="Sprite" allow-scene-objects="false"/>
+        <editor:FloatField name="starScale" label="Star Scale"/> 
+    </engine:VisualElement>
+
+    <!-- Planets -->
+    <engine:VisualElement class="container">
+        <engine:Label text="Planets" class="heading"/>
+        <!-- planetlist will contain the Planet sub-inspectors -->
+        <engine:VisualElement name="planetList"/> 
+        <engine:Button text="Add new planet" name="btnAddNew"/>
+        <engine:Button text="Remove all planets" name="btnRemoveAll"/>    
+    </engine:VisualElement>
+
+</engine:UXML>

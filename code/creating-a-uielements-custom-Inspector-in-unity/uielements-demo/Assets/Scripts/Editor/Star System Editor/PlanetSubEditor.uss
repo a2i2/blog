@@ -1,0 +1,33 @@
+.spriteContainer {
+    width: 120;
+    height: 120;
+    left: 150;
+    margin-bottom: 2;
+}
+
+.sprite {
+    width: 120;
+    height: 120;
+    border-radius: 10;
+}
+
+.spriteImage {
+    position: absolute;
+    border-width: 3;
+    border-color: #444444;
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.spriteBackground {
+    position: absolute;
+    background-color: #000000;
+}
+
+.planetSubeditor {
+    background-color: #6A6A6A;
+    margin: 5, 15;
+    padding: 5;  
+    border-width: 3;
+    border-radius: 10;
+    border-color: #444444;
+}

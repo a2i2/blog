@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2571599982088799712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e108e47a0094cd581b87f23a40ae15, type: 3}
+  m_Name: New Planet
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 43f606f4b4ffa4c26a67dff71b82999e, type: 3}
+  scale: 0.1
+  speed: 12
+  distance: 550
+--- !u!114 &-127362703075577099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e108e47a0094cd581b87f23a40ae15, type: 3}
+  m_Name: New Planet
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 6dae4faa03dc64f6397bfc2abcbe0967, type: 3}
+  scale: 0.2
+  speed: 20
+  distance: 200
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f8ef1fdc0974a70aa22fffb7a5410d, type: 3}
+  m_Name: New Star System
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 0ebfcafa74d734d1ba7b2d64dbf26419, type: 3}
+  planets:
+  - {fileID: -2571599982088799712}
+  - {fileID: -127362703075577099}
+  - {fileID: 6832175731838853269}
+  - {fileID: 6339508433841296424}
+  scale: 0.9
+--- !u!114 &6339508433841296424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e108e47a0094cd581b87f23a40ae15, type: 3}
+  m_Name: New Planet
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: d83ddfc76e83a4c389d598c01d307332, type: 3}
+  scale: 0.15
+  speed: 25
+  distance: 400
+--- !u!114 &6832175731838853269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e108e47a0094cd581b87f23a40ae15, type: 3}
+  m_Name: New Planet
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: ad51fe1d91e164f1c9a50dbf69d6876d, type: 3}
+  scale: 0.4
+  speed: 15
+  distance: 300
