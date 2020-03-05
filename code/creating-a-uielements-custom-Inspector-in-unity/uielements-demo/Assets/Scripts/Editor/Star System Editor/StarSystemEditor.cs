@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 
-//[CustomEditor(typeof(StarSystem))]
+[CustomEditor(typeof(StarSystem))]
 public class StarSystemEditor : Editor
 {
     private VisualElement rootElement;
