@@ -33,6 +33,7 @@ public class StarSystemController : MonoBehaviour
             SpriteRenderer planetSpriteRenderer = newPlanetObject.GetComponent<SpriteRenderer>();
             planetSpriteRenderer.sprite = planet.sprite;
 
+            newPlanetObject.name = planet.name;
             newPlanetObject.transform.localScale = Vector3.one * planet.scale;
             newPlanetObject.transform.position += new Vector3(1, 0, 0) * 0.01f * planet.distance;
 
