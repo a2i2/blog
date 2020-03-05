@@ -13,7 +13,6 @@ public class PlanetSubEditor : VisualElement
         this.starSystemEditor = starSystemEditor;
         this.planet = planet;
 
-        #region Setup UXML and USS
         VisualTreeAsset visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/Editor/Star System Editor/PlanetSubEditor.uxml");
         visualTree.CloneTree(this);
 
@@ -21,7 +20,6 @@ public class PlanetSubEditor : VisualElement
         this.styleSheets.Add(stylesheet);
 
         this.AddToClassList("planetSubeditor");
-        #endregion
 
         #region Fields
         TextField nameField = this.Query<TextField>("planetName").First();
@@ -80,24 +78,19 @@ public class PlanetSubEditor : VisualElement
                 EditorUtility.SetDirty(planet);
             }
         );
-
         #endregion
 
         #region Buttons
-
         Button btnAddPlanet = this.Query<Button>("btnRemove").First();
         btnAddPlanet.clickable.clicked += RemovePlanet;
-
         #endregion
     }
 
     #region Button Functions
-
     private void RemovePlanet()
     {
         if (EditorUtility.DisplayDialog("Delete Planet", "Are you sure you want to delete this planet?", "Delete", "Cancel"))
             starSystemEditor.RemovePlanet(planet);
     }
-
     #endregion
 }

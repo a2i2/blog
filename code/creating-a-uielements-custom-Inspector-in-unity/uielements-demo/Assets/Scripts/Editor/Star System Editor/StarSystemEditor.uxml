@@ -9,8 +9,8 @@
     <engine:VisualElement class="container">   
         <engine:Label text="Star System" class="heading"/>
         <engine:VisualElement class="spriteContainer">
-            <engine:VisualElement class="sprite spriteBackground"/>
-            <engine:VisualElement name="systemSprite" class="sprite spriteImage"/> 
+            <engine:VisualElement class="spriteBackground"/>
+            <engine:VisualElement name="systemSprite" class="spriteImage"/> 
         </engine:VisualElement>      
         <editor:ObjectField name="systemSpriteField" label="Sprite" allow-scene-objects="false"/>
         <editor:FloatField name="starScale" label="Star Scale"/> 

@@ -7,12 +7,12 @@
 >
     <engine:TextField name="planetName" label="Planet Name"></engine:TextField>
     <engine:VisualElement class="spriteContainer">
-        <engine:VisualElement class="sprite spriteBackground"/>  
-        <engine:VisualElement name="planetSpriteDisplay" class="sprite spriteImage"/> 
+        <engine:VisualElement class="spriteBackground"/>  
+        <engine:VisualElement name="planetSpriteDisplay" class="spriteImage"/> 
     </engine:VisualElement>  
     <editor:ObjectField name="planetSprite" label="Sprite" allow-scene-objects="false"/>  
     <editor:FloatField name="planetScale" label="Planet Scale"/>
-    <editor:FloatField name="planetDistance" label="Distance From Star (Light Seconds)"/>
+    <editor:FloatField name="planetDistance" label="Distance (Light Seconds)"/>
     <editor:FloatField name="planetSpeed" label="Planet Speed"/>
     <engine:Button text="Remove planet" name="btnRemove"/>
 

@@ -8,28 +8,29 @@
 }
 
 .spriteContainer {
-    width: 180;
-    height: 180;
+    width: 120;
+    height: 120;
     left: 150;
     margin-bottom: 2;
 }
 
-.sprite {
-    width: 180;
-    height: 180;
-    border-radius: 10;
-}
-
 .spriteImage {
     position: absolute;
-    border-width: 3;
-    border-color: #909090;
     -unity-background-scale-mode: scale-and-crop;
+    margin: 10;
+    width: 100;
+    height: 100;
+    border-radius: 10;
 }
 
 .spriteBackground {
     position: absolute;
     background-color: #000000;
+    border-width: 3;
+    border-color: #444444;
+    width: 120;
+    height: 120;
+    border-radius: 10;
 }
 
 .heading{
