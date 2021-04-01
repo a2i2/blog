@@ -7,9 +7,7 @@
       It's not impossible, but friends make it a lot easier!
     </v-card-text>
     <v-card-text v-if="gameLoaded" class="game">
-      <div
-        class="d-flex pa-0 grey lighten-2 board"
-      >
+      <div class="d-flex pa-0 grey lighten-2 board">
         <div v-for="x in gameDifficulty.gridSize" :key="x">
           <div v-for="y in gameDifficulty.gridSize" :key="y">
             <div
@@ -56,7 +54,7 @@ export default {
     deleteTileID: undefined,
     difficultyLevels: {},
     gameDifficulty: undefined,
-    selectedDifficulty: 'Easy',
+    selectedDifficulty: undefined,
     gameLoaded: false
   }),
   computed: {
@@ -75,13 +73,16 @@ export default {
     percentCompleted() {
       if (!this.gameLoaded) return 0;
 
-      const numTiles = this.gameDifficulty.gridSize * this.gameDifficulty.gridSize;
+      const numTiles =
+        this.gameDifficulty.gridSize * this.gameDifficulty.gridSize;
+        
       const numActive = Object.keys(this.activeTiles).length;
       
       return Math.floor((numActive / numTiles) * 100);
     },
     difficultyLevelOptions() {
-      return Object.values(this.difficultyLevels).map(difficulty => difficulty.name);
+      return Object.values(this.difficultyLevels)
+        .map(difficulty => difficulty.name);
     },
   },
   mounted() {
@@ -164,7 +165,9 @@ export default {
         if (newValue === 100) {
           this.$store.dispatch('SEND_EVENT', {
             type: 'allTilesActive',
-            data: this.gameDifficulty.gridSize * this.gameDifficulty.gridSize
+            data:
+              this.gameDifficulty.gridSize *
+              this.gameDifficulty.gridSize
           });
         }
       }
