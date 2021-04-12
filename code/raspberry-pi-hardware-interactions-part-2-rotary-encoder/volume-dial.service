@@ -1,0 +1,9 @@
+[Unit]
+Description=Volume Dial
+After=sysinit.target
+
+[Service]
+ExecStart=/usr/bin/python /opt/volume_dial.py
+
+[Install]
+WantedBy=multi-user.target
