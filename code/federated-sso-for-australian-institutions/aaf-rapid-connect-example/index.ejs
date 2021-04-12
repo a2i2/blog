@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Example App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+    <style>
+      body {
+        background: #ccc;
+      }
+
+      .panel {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        max-width: 500px;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+      }
+
+      h1 {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel text-center">
+      <h1>Example App</h1>
+      <hr>
+      <% if (session && session.user) { %>
+        <p class="lead">Welcome back, <strong><%= session.user.name %></strong>!</p>
+        <button type="button" class="btn btn-danger" onclick="signOut()">Sign Out</button>
+      <% } else { %>
+        <p class="lead">You are not signed in. :(</p>
+        <button type="button" class="btn btn-success" onclick="signIn()">Sign In</button>
+      <% } %>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
+    <script>
+      function signIn() {
+        window.location.href = "/auth";
+      }
+
+      function signOut() {
+        fetch("/auth", { method: "DELETE", credentials: "include" })
+        .then(function(response) {
+          if (!response.ok) throw new Error("Unexpected response.");
+          window.location.reload(true);
+        })
+        .catch(function(error) { console.error(error); });
+      }
+    </script>
+  </body>
+</html>

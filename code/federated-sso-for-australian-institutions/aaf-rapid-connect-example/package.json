@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node_modules/.bin/babel-node ."
+  },
+  "dependencies": {
+    "aaf-rapid-connect-jwt-validator": "1.1.0",
+    "aaf-rapid-connect-mock": "1.0.1",
+    "body-parser": "1.15.2",
+    "cookie-session": "2.0.0-alpha.1",
+    "ejs": "2.5.2",
+    "express": "4.14.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.16.0",
+    "babel-preset-node6": "11.0.0"
+  },
+  "babel": {
+    "presets": [
+      "node6"
+    ]
+  }
+}
