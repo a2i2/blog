@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .panel {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        max-width: 600px;
+        transform: translate(-50%, -50%);
+        padding: 15px;
+      }
+
+      form {
+        padding-top: 5px;
+      }
+
+      .form-group {
+        max-width: 350px;
+        padding-bottom: 15px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel text-center">
+      <h1><%= pageTitle %></h1>
+      <hr>
+      <p>This is a "mock" sign-in page, built for development purposes!</p>
+      <p>Please enter the information of a user to impersonate:</p>
+      <form>
+        <div class="form-group input-group">
+          <div class="input-group-addon">Name</div>
+          <input type="text" class="form-control" name="name" placeholder="e.g. Kon Mouzakis" autofocus required>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-addon">Email</div>
+          <input type="email" class="form-control" name="email" placeholder="e.g. kon.mouzakis@deakin.edu.au" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign In</button>
+      </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
+    <script>
+      var form = document.querySelector("form");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var name = document.getElementsByName("name")[0].value;
+        var email = document.getElementsByName("email")[0].value;
+
+        fetch("<%= baseUrl %>", {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ name: name, email: email })
+        })
+        .then(function(response) { return response.json(); })
+        .then(function(json) {
+          // To perform a "POST redirect", create a temporary form and submit it.
+          var tempForm = document.createElement("form");
+          tempForm.method = "POST";
+          tempForm.action = "<%= authUrl %>";
+          document.body.appendChild(tempForm);
+
+          var input = document.createElement("input");
+          input.type = "hidden";
+          input.name = "assertion";
+          input.value = json.assertion;
+          tempForm.appendChild(input);
+
+          tempForm.submit();
+        })
+        .catch(function(error) { console.error(error); });
+      });
+    </script>
+  </body>
+</html>
