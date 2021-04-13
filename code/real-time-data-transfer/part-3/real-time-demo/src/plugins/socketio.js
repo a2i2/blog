@@ -2,9 +2,9 @@ import io from 'socket.io-client';
 
 let socket = undefined;
 const localIP = 'localhost';
-const networkIP = '192.168.1.104';
+const networkIP = '0.0.0.0';
 const port = 3030;
-const networkConnection = true;
+const networkConnection = false;
 
 function initialiseSocket() {
   const url = networkConnection ?
