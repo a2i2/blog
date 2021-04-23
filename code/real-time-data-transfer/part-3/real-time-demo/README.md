@@ -1,4 +1,4 @@
-# Real-Time Data Transfer Using Vue and Socket.IO: Part 2
+# Real-Time Data Transfer Using Vue and Socket.IO: Part 3
 
 ## Project setup
 To initialise the project, run the command
