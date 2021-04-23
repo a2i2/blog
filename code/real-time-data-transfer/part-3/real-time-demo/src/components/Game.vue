@@ -173,7 +173,7 @@ export default {
       }
     },
     gameDifficulty(newValue) {
-      this.gameLoaded = !!newValue;
+      this.gameLoaded = (newValue != undefined);
     }
   }
 };
