@@ -48,3 +48,13 @@ console.log(JSON.stringify(blockchain.chain, null, 2));
 
 // Is the blockchain valid?
 blockchain.isChainValid();
+
+// Recalculate the hash of the block
+logHeading('Test 3: Proof of Work');
+blockchain.chain[1].mine();
+
+// Print the blockchain to the console
+console.log(JSON.stringify(blockchain.chain, null, 2));
+
+// Is the blockchain valid?
+blockchain.isChainValid();
