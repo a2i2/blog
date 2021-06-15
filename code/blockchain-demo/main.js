@@ -9,7 +9,7 @@ const blockchain = new Blockchain({
 const numBlocks = 3;
 
 // Add blocks to the blockchain
-for (let i = 0; i < numBlocks; ++i) {
+for (let i = 1; i <= numBlocks; ++i) {
   console.log(`Mining block ${i + 1}...`);
   blockchain.addBlock(new Block(
     i, Date.now(), { value: Math.random() }
