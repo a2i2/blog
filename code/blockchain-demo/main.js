@@ -25,43 +25,39 @@ function logHeading(title) {
 function logValidity() {
   const response = blockchain.isChainValid();
   const validity = `${response.isValid ? '' : 'NOT '}VALID`;
-  const reason = `${!response.isValid ? ': ' : ''}${response.reason}`;
+  const reason = `${!response.isValid ? ': ' : ''}${response.reason || ''}`;
   console.log(`\nThe blockchain is ${validity}${reason}\n`);
 }
 
-// Print the blockchain to the console
-logHeading('Blockchain');
-console.log(JSON.stringify(blockchain.chain, null, 2));
+function logBlockchain() {
+  console.log(JSON.stringify(blockchain.chain, null, 2));
+}
 
-// Is the blockchain valid?
-logValidity();
+function test(title, testFunction = () => {}) {
+  testFunction();
+  logHeading(title);
+  logBlockchain();
+  logValidity();
+}
 
-// Alter the data of one of the blocks
-logHeading('Test 1: Altered Data');
-blockchain.chain[1].data = { value: 'altered data' };
+test('Blockchain');
 
-// Print the blockchain to the console
-console.log(JSON.stringify(blockchain.chain, null, 2));
+test('Test 1: Altered Data', () => {
+  blockchain.chain[1].data = { value: 'altered data' };
+});
 
-// Is the blockchain valid?
-logValidity();
+test('Test 2: Recalculated Hash', () => {
+  blockchain.chain[1].hash = blockchain.chain[1].calculateHash();
+});
 
-// Recalculate the hash of the block
-logHeading('Test 2: Recalculated Hash');
-blockchain.chain[1].hash = blockchain.chain[1].calculateHash();
+test('Test 3: Proof of Work', () => {
+  blockchain.chain[1].mine();
+});
 
-// Print the blockchain to the console
-console.log(JSON.stringify(blockchain.chain, null, 2));
-
-// Is the blockchain valid?
-logValidity();
-
-// Provide Proof of Work for the block
-logHeading('Test 3: Proof of Work');
-blockchain.chain[1].mine();
-
-// Print the blockchain to the console
-console.log(JSON.stringify(blockchain.chain, null, 2));
-
-// Is the blockchain valid?
-logValidity();
+test('Test 4: Proof of Work for Entire Blockchain', () => {
+  for (let i = 1; i <= numBlocks; ++i) {
+    blockchain.chain[i].prev = blockchain.chain[i - 1].hash;
+    blockchain.chain[i].hash = blockchain.chain[i].calculateHash();
+    blockchain.chain[i].mine();
+  }
+});

@@ -6,7 +6,7 @@ class Blockchain {
     this.logNonce = options.logNonce || false;
     this.logTimer = options.logTimer || false;
     this.chain = [this.createGenesisBlock()];
-    Challenge.set('0000', Position.END);
+    Challenge.set('abcd', Position.END);
   }
 
   createGenesisBlock() {
