@@ -24,7 +24,7 @@ console.log(JSON.stringify(blockchain.chain, null, 2));
 blockchain.isChainValid();
 
 // Alter the data of one of the blocks
-blockchain.chain[1].data = { value: Math.random() };
+blockchain.chain[1].data = { value: 'altered data' };
 
 // Print the blockchain to the console
 console.log(JSON.stringify(blockchain.chain, null, 2));
