@@ -1,5 +1,5 @@
 const sha256 = require('js-sha256');
-const { Challenge, Position } = require('./challenge');
+const { Challenge } = require('./challenge');
 
 class Block {
   constructor(index, timestamp, data, prev = '') {
@@ -23,7 +23,7 @@ class Block {
 
   mine(logNonce) {
     // Match hexadecimal 'abcd' at the end of the hash
-    while (!Challenge.isSuccess(this.hash, 'abcd', Position.END)) {
+    while (!Challenge.isSuccess(this.hash)) {
       this.nonce++;
       this.hash = this.calculateHash();
       if (logNonce) console.log(`${this.nonce} - ${this.hash}`);

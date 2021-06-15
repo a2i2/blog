@@ -22,12 +22,19 @@ function logHeading(title) {
   console.log(`${'='.repeat(80)}`);
 }
 
+function logValidity() {
+  const response = blockchain.isChainValid();
+  const validity = `${response.isValid ? '' : 'NOT '}VALID`;
+  const reason = `${!response.isValid ? ': ' : ''}${response.reason}`;
+  console.log(`\nThe blockchain is ${validity}${reason}\n`);
+}
+
 // Print the blockchain to the console
 logHeading('Blockchain');
 console.log(JSON.stringify(blockchain.chain, null, 2));
 
 // Is the blockchain valid?
-blockchain.isChainValid();
+logValidity();
 
 // Alter the data of one of the blocks
 logHeading('Test 1: Altered Data');
@@ -37,7 +44,7 @@ blockchain.chain[1].data = { value: 'altered data' };
 console.log(JSON.stringify(blockchain.chain, null, 2));
 
 // Is the blockchain valid?
-blockchain.isChainValid();
+logValidity();
 
 // Recalculate the hash of the block
 logHeading('Test 2: Recalculated Hash');
@@ -47,7 +54,7 @@ blockchain.chain[1].hash = blockchain.chain[1].calculateHash();
 console.log(JSON.stringify(blockchain.chain, null, 2));
 
 // Is the blockchain valid?
-blockchain.isChainValid();
+logValidity();
 
 // Provide Proof of Work for the block
 logHeading('Test 3: Proof of Work');
@@ -57,4 +64,4 @@ blockchain.chain[1].mine();
 console.log(JSON.stringify(blockchain.chain, null, 2));
 
 // Is the blockchain valid?
-blockchain.isChainValid();
+logValidity();

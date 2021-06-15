@@ -1,10 +1,12 @@
 const Block = require('./block');
+const { Challenge, Position } = require('./challenge');
 
 class Blockchain {
   constructor(options) {
     this.logNonce = options.logNonce || false;
     this.logTimer = options.logTimer || false;
     this.chain = [this.createGenesisBlock()];
+    Challenge.set('0000', Position.END);
   }
 
   createGenesisBlock() {
@@ -35,17 +37,27 @@ class Blockchain {
   }
 
   isChainValid() {
-    let isValid = true;
-
     for (let i = 1; i < this.chain.length; ++i) {
       const current = this.chain[i];
       const previous = this.chain[i - 1];
 
-      if (current.hash !== current.calculateHash()) isValid = false;
-      if (current.prev !== previous.hash) isValid = false;
+      if (current.hash !== current.calculateHash()) return {
+        isValid: false,
+        reason: 'Data does not match hash'
+      };
+      
+      if (!Challenge.isSuccess(current.hash)) return {
+        isValid: false,
+        reason: 'Hash failed challenge'
+      };
+      
+      if (current.prev !== previous.hash) return {
+        isValid: false,
+        reason: 'Prev hash does not match',
+      }
     }
-    
-    console.log(`\nThe blockchain is ${isValid ? '' : 'NOT '}VALID\n`);
+
+    return { isValid: true };
   }
 }
 
